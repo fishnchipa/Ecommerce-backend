@@ -24,12 +24,14 @@ public class UsersService {
 
 	public Response createUser(Users user) {
 		
-		Response response = new Response();
+		UsersResponse response = new UsersResponse();
+		List<Users> validUser = getUser(user.getEmail());
 
-		if (getUser(user.getEmail()).isEmpty()) {
+		if (validUser.isEmpty()) {
 			userRepository.save(user);
 			response.setMessage("User successfully created");
 			response.setStatus(true);
+			response.setId(getUser(user.getEmail()).get(0).getId());
 
 		} else {
 			response.setMessage("Email already in use");
