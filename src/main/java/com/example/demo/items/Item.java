@@ -31,6 +31,13 @@ public class Item {
 		this.id = id;
 	}
 
+	public Item(Long id, String name, Double price, String category) {
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.category = category;
+	}
+
 	public Item(String name, Double price, String category) {
 		this.name = name;
 		this.price = price;
