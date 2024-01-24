@@ -13,11 +13,11 @@ import jakarta.persistence.ManyToOne;
 public class CartId implements Serializable{
 
 	@ManyToOne
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "userId")
 	private Users userId;
 
 	@ManyToOne
-	@JoinColumn(name = "item_id") 
+	@JoinColumn(name = "itemId") 
 	private Item itemId;
 
 	public CartId() {}
