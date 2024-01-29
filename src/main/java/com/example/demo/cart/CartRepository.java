@@ -10,12 +10,17 @@ import org.springframework.data.jpa.repository.Query;
 import com.example.demo.items.Item;
 import com.example.demo.users.Users;
 
+import jakarta.transaction.Transactional;
+
 public interface CartRepository extends JpaRepository<Cart, CartId>{
 	
-	String query = 
+	String query1 = 
 	"SELECT new com.example.demo.items.Item(i.id, i.name, i.price, i.category)" +
 	"FROM Cart c JOIN Item i ON c.id.itemId.id = i.id WHERE c.id.userId.id = :id";
 
-	@Query(query)
+	@Query(query1)
 	List<Item> findUserCart(Long id);
+
+	@Transactional
+	void deleteByIdUserId(Users id);
 }

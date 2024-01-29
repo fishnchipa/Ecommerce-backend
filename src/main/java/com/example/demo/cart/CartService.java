@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.Response;
 import com.example.demo.items.Item;
 import com.example.demo.users.Users;
 
@@ -28,5 +29,10 @@ public class CartService {
 
 	public void addCart(Cart cartItem) {
 		cartRepository.save(cartItem);
+	}
+
+	public void deleteCart(Users user) {
+		cartRepository.deleteByIdUserId(user);
+
 	}
 }
