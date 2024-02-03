@@ -35,4 +35,8 @@ public class ItemService {
 
 		return retval;
 	}
+
+	public List<Item> getSearchedItems(String search) {
+		return itemRepository.findByNameIgnoreCaseContaining(search);
+	}
 }
